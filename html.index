@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Join Jiga Bhai's Private Trading Channel for Premium Nifty & BankNifty Setups." />
-  <title>Jiga Bhai | Trading Expert</title>
+  <title>Jiga Bhai | Premium Trading Access</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary-gold: linear-gradient(135deg, #ffcc33 0%, #ffb300 100%);
-      --glass-bg: rgba(255, 255, 255, 0.08);
-      --glass-border: rgba(255, 255, 255, 0.15);
-      --text-white: #ffffff;
-      --text-gray: #b3b3b3;
-      --bg-dark: #0a0a0a;
+      --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f2d06b 50%, #b8860b 100%);
+      --dark-bg: #050505;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --border-color: rgba(212, 175, 55, 0.3);
+      --text-main: #ffffff;
+      --text-dim: #a0a0a0;
     }
 
     * {
@@ -28,217 +27,218 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-dark);
-      /* Premium Dark Background Image with Overlay */
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
-                  url('https://images.unsplash.com/photo-1611974717484-3b020c10f06e?q=80&w=2070&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: var(--text-white);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
+      background-color: var(--dark-bg);
+      background-image: 
+        radial-gradient(circle at 50% -20%, #1a1a1a 0%, #050505 80%);
+      color: var(--text-main);
+      line-height: 1.5;
+      overflow-x: hidden;
     }
 
-    .app-container {
-      width: 100%;
+    /* Main Container */
+    .wrapper {
       max-width: 450px;
+      margin: 0 auto;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       padding: 20px;
-      position: relative;
     }
 
-    /* VIP Badge */
-    .vip-badge {
-      background: rgba(255, 215, 0, 0.15);
-      border: 1px solid rgba(255, 215, 0, 0.4);
-      color: #ffd700;
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      align-self: center;
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    /* Entrance Animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Header Section */
-    header {
+    .animate {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* Top VIP Badge */
+    .badge-container {
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 40px;
+      margin-top: 20px;
     }
 
-    header h1 {
-      font-size: 32px;
+    .vip-label {
+      display: inline-block;
+      background: var(--gold-gradient);
+      color: #000;
+      padding: 4px 15px;
+      border-radius: 4px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 5px;
-    }
-
-    header p {
-      color: var(--text-gray);
-      font-size: 16px;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
 
-    .live-indicator {
+    /* Hero Section */
+    header {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    header h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: var(--text-dim);
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .live-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(0, 255, 0, 0.1);
+      background: rgba(0, 255, 0, 0.05);
+      border: 1px solid rgba(0, 255, 0, 0.3);
       color: #00ff00;
       padding: 4px 12px;
-      border-radius: 20px;
+      border-radius: 50px;
       font-size: 12px;
       font-weight: 700;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
-    .live-dot {
-      width: 8px;
-      height: 8px;
+    .dot {
+      width: 6px;
+      height: 6px;
       background: #00ff00;
       border-radius: 50%;
-      animation: pulse 1.5s infinite;
+      animation: blink 1s infinite;
     }
 
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.3; }
-      100% { opacity: 1; }
-    }
+    @keyframes blink { 50% { opacity: 0; } }
 
-    /* Features Cards (Glassmorphism) */
-    .features-list {
+    /* Social Proof Bar */
+    .social-proof {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      justify-content: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-dim);
       margin-bottom: 30px;
     }
 
-    .feature-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      padding: 16px;
-      border-radius: 16px;
+    .proof-item { display: flex; align-items: center; gap: 5px; }
+
+    /* Feature Section */
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+      color: var(--text-main);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card-row {
       display: flex;
       align-items: center;
       gap: 15px;
-      transition: transform 0.2s;
     }
 
-    .feature-card:active {
-      transform: scale(0.98);
-    }
-
-    .feature-icon {
-      font-size: 24px;
-      width: 40px;
-      height: 40px;
+    .icon-box {
+      width: 45px;
+      height: 45px;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
+      font-size: 22px;
     }
 
-    .feature-info h4 {
-      font-size: 15px;
-      font-weight: 600;
+    .card-text h3 {
+      font-size: 16px;
       margin-bottom: 2px;
     }
 
-    .feature-info p {
+    .card-text p {
       font-size: 13px;
-      color: var(--text-gray);
+      color: var(--text-dim);
     }
 
-    /* Main CTA Button */
-    .cta-container {
-      margin-top: auto;
-      margin-bottom: 20px;
+    /* FOMO Section */
+    .fomo-box {
+      background: linear-gradient(rgba(255, 68, 68, 0.1), rgba(255, 68, 68, 0.05));
+      border: 1px solid rgba(255, 68, 68, 0.3);
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      margin: 30px 0;
     }
 
-    .btn-main {
+    .fomo-text {
+      color: #ff4444;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timer-display {
+      font-family: monospace;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    /* Main Button */
+    .btn-gold {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       width: 100%;
-      background: var(--primary-gold);
+      background: var(--gold-gradient);
       color: #000;
       text-decoration: none;
-      padding: 18px;
-      border-radius: 14px;
+      padding: 20px;
+      border-radius: 16px;
       font-size: 18px;
       font-weight: 800;
       text-transform: uppercase;
-      box-shadow: 0 10px 25px rgba(255, 179, 0, 0.4);
-      transition: all 0.2s;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      transition: transform 0.2s;
     }
 
-    .btn-main:active {
-      transform: scale(0.96);
-      filter: brightness(0.9);
+    .btn-gold:active { transform: scale(0.96); }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 40px 0 20px;
+      text-align: center;
     }
 
-    /* Scarcity Bar / Timer */
-    .scarcity-bar {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 68, 68, 0.3);
-      padding: 12px;
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
+    .disclaimer {
+      font-size: 11px;
+      color: #555;
+      padding: 15px;
+      border-top: 1px solid #222;
     }
 
-    .scarcity-text {
-      font-size: 13px;
-      color: #ff4444;
-      font-weight: 600;
-    }
-
-    .timer {
-      display: flex;
-      gap: 5px;
-      font-family: monospace;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .timer span {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    /* Footer Stats */
-    .footer-stats {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 5px;
-      font-size: 12px;
-      color: var(--text-gray);
-    }
-
-    /* Floating Support Button */
-    .support-float {
+    /* Floating Support */
+    .support-btn {
       position: fixed;
-      bottom: 25px;
+      bottom: 20px;
       right: 20px;
       width: 55px;
       height: 55px;
@@ -247,100 +247,97 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      z-index: 100;
     }
 
-    .support-float svg {
-      width: 28px;
-      fill: #000;
-    }
-
-    /* Mobile Disclaimer */
-    .disclaimer {
-      font-size: 10px;
-      color: #666;
-      text-align: center;
-      margin-top: 20px;
-      line-height: 1.4;
-    }
+    .support-btn svg { width: 28px; fill: #000; }
 
   </style>
 </head>
 <body>
 
-<div class="app-container">
-
-  <div class="vip-badge">
-    <span>⭐</span> VIP ACCESS GRANTED
+<div class="wrapper">
+  
+  <div class="badge-container animate">
+    <span class="vip-label">Elite Membership</span>
   </div>
 
-  <header>
+  <header class="animate" style="animation-delay: 0.2s;">
     <h1>JIGA BHAI</h1>
-    <p>Market Expert</p>
-    <div class="live-indicator">
-      <div class="live-dot"></div> LIVE SESSION
+    <p>Market Mastery & Precision</p>
+    <div class="live-tag">
+      <div class="dot"></div> LIVE ANALYSIS
     </div>
   </header>
 
-  <div class="features-list">
-    <div class="feature-card">
-      <div class="feature-icon">🚀</div>
-      <div class="feature-info">
-        <h4>Premium Calls</h4>
-        <p>High accuracy Nifty & BankNifty setups</p>
+  <div class="social-proof animate" style="animation-delay: 0.3s;">
+    <div class="proof-item">⭐ 4.9/5 Rating</div>
+    <div class="proof-item">👥 5,000+ Traders</div>
+  </div>
+
+  <div class="section-title animate" style="animation-delay: 0.4s;">WHAT YOU GET INSIDE</div>
+
+  <div class="features animate" style="animation-delay: 0.5s;">
+    <div class="card">
+      <div class="card-row">
+        <div class="icon-box">🎯</div>
+        <div class="card-text">
+          <h3>Precision Setups</h3>
+          <p>High RR Nifty & BankNifty calls</p>
+        </div>
       </div>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <div class="feature-info">
-        <h4>Chart Analysis</h4>
-        <p>Depth pattern logic with live images</p>
+    <div class="card">
+      <div class="card-row">
+        <div class="icon-box">📈</div>
+        <div class="card-text">
+          <h3>Pro Charting</h3>
+          <p>Deep pattern logic & visual guides</p>
+        </div>
       </div>
     </div>
 
-    <div class="feature-card">
-      <div class="feature-icon">📚</div>
-      <div class="feature-info">
-        <h4>Education First</h4>
-        <p>No tips, only real market learning</p>
+    <div class="card">
+      <div class="card-row">
+        <div class="icon-box">🧠</div>
+        <div class="card-text">
+          <h3>Trading Psychology</h3>
+          <p>Learn to manage emotions & capital</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Scarcity & Timer Section -->
-  <div class="scarcity-bar">
-    <div class="scarcity-text">⚡ FREE VIP ACCESS - 3 SPOTS LEFT!</div>
-    <div class="timer" id="countdown">
-      <span>00</span>:<span>00</span>:<span>00</span>
-    </div>
+  <div class="fomo-box animate" style="animation-delay: 0.6s;">
+    <div class="fomo-text">⚠️ FREE LIFETIME ACCESS CLOSING SOON</div>
+    <div class="timer-display" id="timer">00:00:00</div>
+    <p style="font-size: 11px; color: #888; margin-top: 5px;">Only 3 Spots left for today!</p>
   </div>
 
-  <div class="cta-container">
-    <a href="https://t.me/+4oN8IsDUF1FhNjY1" class="btn-main" target="_blank" rel="noopener">
-      <span>✈️</span> JOIN PRIVATE CHANNEL
+  <div class="cta-section animate" style="animation-delay: 0.7s;">
+    <a href="https://t.me/+4oN8IsDUF1FhNjY1" class="btn-gold" target="_blank" rel="noopener">
+      <span>✈️</span> JOIN NOW
     </a>
   </div>
 
-  <div class="footer-stats">
-    <span>👁️ 1.2k views</span>
-    <span>✅ 156 joined today</span>
-  </div>
-
-  <p class="disclaimer">
-    ⚠️ Disclaimer: Stock market trading involves significant risk. All analysis is for educational purposes only.
-  </p>
+  <footer>
+    <p style="font-size: 14px; color: #888;">© 2024 JIGA BHAI TRADING</p>
+    <p class="disclaimer">
+      DISCLAIMER: Trading involves risk. We are not SEBI registered. All content is for educational purposes only.
+    </p>
+  </footer>
 
 </div>
 
-<!-- Floating Support Bot -->
-<a href="https://t.me/Jiga_Bhai_Gujrati_Trader_bot" class="support-float" target="_blank" rel="noopener">
+<!-- Support Bot -->
+<a href="https://t.me/Jiga_Bhai_Gujrati_Trader_bot" class="support-btn" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
 </a>
 
 <script>
-  // --- COUNTDOWN TIMER LOGIC ---
+  // Countdown Timer
   function startTimer(duration, display) {
     let timer = duration, hours, minutes, seconds;
     setInterval(function () {
@@ -354,23 +351,15 @@
 
       display.textContent = hours + ":" + minutes + ":" + seconds;
 
-      if (--timer < 0) {
-        timer = duration;
-      }
+      if (--timer < 0) { timer = duration; }
     }, 1000);
   }
 
   window.onload = function () {
-    const twentyFourHours = 24 * 60 * 60; // 24 hours in seconds
-    const display = document.querySelector('#countdown');
-    startTimer(twentyFourHours, display);
+    const duration = 24 * 60 * 60; 
+    const display = document.querySelector('#timer');
+    startTimer(duration, display);
   };
-
-  // --- CLICK TRACKING ---
-  document.querySelector('.btn-main').addEventListener('click', function() {
-    console.log('Conversion Tracked: Joined Channel');
-    // fbq('track', 'Lead'); // Uncomment for Meta Pixel
-  });
 </script>
 
 </body>
