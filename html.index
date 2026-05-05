@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Join Jiga Bhai's Private Trading Channel for Premium Nifty & BankNifty Setups." />
+  <title>Jiga Bhai | Trading Expert</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-gold: linear-gradient(135deg, #ffcc33 0%, #ffb300 100%);
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.15);
+      --text-white: #ffffff;
+      --text-gray: #b3b3b3;
+      --bg-dark: #0a0a0a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      /* Premium Dark Background Image with Overlay */
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
+                  url('https://images.unsplash.com/photo-1611974717484-3b020c10f06e?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 450px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* VIP Badge */
+    .vip-badge {
+      background: rgba(255, 215, 0, 0.15);
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      color: #ffd700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      align-self: center;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: var(--text-gray);
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 0, 0.1);
+      color: #00ff00;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #00ff00;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    /* Features Cards (Glassmorphism) */
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .feature-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      padding: 16px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: transform 0.2s;
+    }
+
+    .feature-card:active {
+      transform: scale(0.98);
+    }
+
+    .feature-icon {
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    .feature-info h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .feature-info p {
+      font-size: 13px;
+      color: var(--text-gray);
+    }
+
+    /* Main CTA Button */
+    .cta-container {
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    .btn-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--primary-gold);
+      color: #000;
+      text-decoration: none;
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      box-shadow: 0 10px 25px rgba(255, 179, 0, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-main:active {
+      transform: scale(0.96);
+      filter: brightness(0.9);
+    }
+
+    /* Scarcity Bar / Timer */
+    .scarcity-bar {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 68, 68, 0.3);
+      padding: 12px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .scarcity-text {
+      font-size: 13px;
+      color: #ff4444;
+      font-weight: 600;
+    }
+
+    .timer {
+      display: flex;
+      gap: 5px;
+      font-family: monospace;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .timer span {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Footer Stats */
+    .footer-stats {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px;
+      font-size: 12px;
+      color: var(--text-gray);
+    }
+
+    /* Floating Support Button */
+    .support-float {
+      position: fixed;
+      bottom: 25px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      z-index: 1000;
+    }
+
+    .support-float svg {
+      width: 28px;
+      fill: #000;
+    }
+
+    /* Mobile Disclaimer */
+    .disclaimer {
+      font-size: 10px;
+      color: #666;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.4;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+
+  <div class="vip-badge">
+    <span>⭐</span> VIP ACCESS GRANTED
+  </div>
+
+  <header>
+    <h1>JIGA BHAI</h1>
+    <p>Market Expert</p>
+    <div class="live-indicator">
+      <div class="live-dot"></div> LIVE SESSION
+    </div>
+  </header>
+
+  <div class="features-list">
+    <div class="feature-card">
+      <div class="feature-icon">🚀</div>
+      <div class="feature-info">
+        <h4>Premium Calls</h4>
+        <p>High accuracy Nifty & BankNifty setups</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-info">
+        <h4>Chart Analysis</h4>
+        <p>Depth pattern logic with live images</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📚</div>
+      <div class="feature-info">
+        <h4>Education First</h4>
+        <p>No tips, only real market learning</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scarcity & Timer Section -->
+  <div class="scarcity-bar">
+    <div class="scarcity-text">⚡ FREE VIP ACCESS - 3 SPOTS LEFT!</div>
+    <div class="timer" id="countdown">
+      <span>00</span>:<span>00</span>:<span>00</span>
+    </div>
+  </div>
+
+  <div class="cta-container">
+    <a href="https://t.me/+4oN8IsDUF1FhNjY1" class="btn-main" target="_blank" rel="noopener">
+      <span>✈️</span> JOIN PRIVATE CHANNEL
+    </a>
+  </div>
+
+  <div class="footer-stats">
+    <span>👁️ 1.2k views</span>
+    <span>✅ 156 joined today</span>
+  </div>
+
+  <p class="disclaimer">
+    ⚠️ Disclaimer: Stock market trading involves significant risk. All analysis is for educational purposes only.
+  </p>
+
+</div>
+
+<!-- Floating Support Bot -->
+<a href="https://t.me/Jiga_Bhai_Gujrati_Trader_bot" class="support-float" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+</a>
+
+<script>
+  // --- COUNTDOWN TIMER LOGIC ---
+  function startTimer(duration, display) {
+    let timer = duration, hours, minutes, seconds;
+    setInterval(function () {
+      hours = parseInt(timer / 3600, 10);
+      minutes = parseInt((timer % 3600) / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      hours = hours < 10 ? "0" + hours : hours;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = hours + ":" + minutes + ":" + seconds;
+
+      if (--timer < 0) {
+        timer = duration;
+      }
+    }, 1000);
+  }
+
+  window.onload = function () {
+    const twentyFourHours = 24 * 60 * 60; // 24 hours in seconds
+    const display = document.querySelector('#countdown');
+    startTimer(twentyFourHours, display);
+  };
+
+  // --- CLICK TRACKING ---
+  document.querySelector('.btn-main').addEventListener('click', function() {
+    console.log('Conversion Tracked: Joined Channel');
+    // fbq('track', 'Lead'); // Uncomment for Meta Pixel
+  });
+</script>
+
+</body>
+</html>
